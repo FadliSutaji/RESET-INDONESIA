@@ -1,0 +1,210 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #0e0f13;
+  color: #fff;
+  text-align: center;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+header {
+  background: #0e0f13; /* dark gray background like screenshot */
+  color: #fff;
+  padding: 20px 20px;
+  border-bottom: white solid;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 24px;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #e6e6e6;
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.nav-links .Sosmed {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.nav-links i {
+  font-size: 20px;   /* ubah angka sesuai kebutuhan */
+  color: white;      /* warna default */
+  transition: 0.3s;  /* animasi halus */
+}
+
+.nav-links i:hover {
+  color: #ff4da6;    /* warna hover pink */
+}
+
+
+.nav-links li a:hover {
+  color: #ff00d9; /* golden hover, like "premium" icon in screenshot */
+}
+
+
+/* Hero Section */
+.Hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  padding: 60px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: left; /* biar text ke kiri di dalam details */
+}
+
+.Hero .preview {
+  flex: 0.65;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Preview (kiri) */
+
+.canvas-box {
+  width: 100%;
+  max-width: 500px;
+  aspect-ratio: 1 / 1;
+  background: #1c1e24;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.canvas-box canvas {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+
+/* Details (kanan) */
+.Hero .details {
+  flex: 1;
+}
+.Hero .details h1 {
+  font-size: clamp(26px, 4vw, 42px);
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: #ff1493;
+}
+.Hero .details p {
+  font-size: 16px;
+  color: #cfd0d6;
+  margin-bottom: 10px;
+}
+
+/* Controls inside details */
+.Hero .controls {
+  margin: 24px 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.btn {
+  padding: 12px 20px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 15px;
+  transition: 0.2s;
+}
+
+.btn.file {
+  background: #444;
+  color: #fff;
+}
+
+.btn.accent {
+  background: black;
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+  color: #fff;
+}
+
+.btn:disabled {
+  background: #555;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+}
+
+/* Canvas preview */
+
+
+.file {
+  background: #444;
+  color: #fff;
+}
+
+/* Responsive: Stack on mobile */
+@media (max-width: 768px) {
+  .Hero {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center; /* isi rata tengah di mobile */
+  }
+
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 10px;
+  }
+
+  .Hero .preview {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .canvas-box {
+    max-width: 280px;   /* canvas-box lebih kecil di mobile */
+    aspect-ratio: 1/1;  /* tetap kotak */
+  }
+
+  .Hero .details {
+    text-align: center; /* biar teks ikut tengah di mobile */
+  }
+}
