@@ -12,25 +12,23 @@ function clamp(v, min, max) {
 }
 
 function process(img) {
-  const w = img.naturalWidth;
-  const h = img.naturalHeight;
-  canvas.width = w;
-  canvas.height = h;
-  ctx.drawImage(img, 0, 0, w, h);
+  // canvas ikut ukuran asli gambar
+  canvas.width = img.naturalWidth;
+  canvas.height = img.naturalHeight;
 
-  const imageData = ctx.getImageData(0, 0, w, h);
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+
+  // ambil pixel untuk filter
+  const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
   const d = imageData.data;
 
   for (let i = 0; i < d.length; i += 4) {
     const r = d[i], g = d[i+1], b = d[i+2];
 
-    // luminance
     let lum = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
-
-    // smoother gradient with cubic easing
     lum = lum * lum * (3 - 2 * lum);
 
-    // blend between green shadow and pink highlight
     const dr = SHADOW.r + (HIGHLIGHT.r - SHADOW.r) * lum;
     const dg = SHADOW.g + (HIGHLIGHT.g - SHADOW.g) * lum;
     const db = SHADOW.b + (HIGHLIGHT.b - SHADOW.b) * lum;
@@ -43,6 +41,8 @@ function process(img) {
   ctx.putImageData(imageData, 0, 0);
   downloadBtn.disabled = false;
 }
+
+
 
 fileInput.addEventListener('change', e => {
   const file = e.target.files[0];
