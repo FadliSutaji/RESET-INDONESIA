@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Pink Toner | By Fadlu</title>
+  <title>Filter Reset Indonesia</title>
   <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
@@ -31,9 +31,19 @@
 
   <!-- Kanan: Detail -->
   <div class="details">
-    <h1><span style="color: white;">Filter</span> #RESET<span style="color: rgb(53, 255, 53);">INDONESIA</span></h1>
+    <div>
+      <button onclick="setThemeIndex(0)" style="cursor: pointer;">
+        <div style="width: 20px;height: 10px;background-color: rgb(178, 34, 34);"></div>
+        <div style="width: 20px;height: 10px;background-color: rgb(255, 248, 240);"></div>
+      </button>
+      <button onclick="setThemeIndex(1)" style="cursor: pointer;">
+        <div style="width: 20px;height: 10px;background-color: rgb(255, 105, 180);"></div>
+        <div style="width: 20px;height: 10px;background-color: rgb(34, 139, 34);"></div>
+      </button>
+    </div>
+    <h1>Filter <span id="text_reset">#RESET</span><span id="text_indonesia">INDONESIA</span></h1>
     <p>Dukung gerakan #RESETINDONESIA dengan filter ini.</p>
-    <p>Pink untuk harapan baru, hijau untuk kepedulian bersama.</p>
+    <p id="theme_context">Pink untuk harapan baru, hijau untuk kepedulian bersama.</p>
     
     <div class="controls">
       <input id="file" type="file" accept="image/*" class="btn file"/>
